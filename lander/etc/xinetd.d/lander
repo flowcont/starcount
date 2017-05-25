@@ -1,0 +1,11 @@
+service lander
+{
+  type = UNLISTED
+  instances = 10
+  socket_type = stream
+  protocol = tcp
+  wait = no
+  user = root
+  port = 9999
+  server = /usr/local/bin/lander-handler.sh
+}
