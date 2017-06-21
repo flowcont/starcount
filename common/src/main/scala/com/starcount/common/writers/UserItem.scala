@@ -1,10 +1,9 @@
 package com.starcount.common.writers
 
 import java.net.Socket
-import com.sksamuel.avro4s.AvroOutputStream
-import com.starcount.common.schema.{
-  UserItem => Schema
-}
+
+import com.sksamuel.avro4s.{AvroDataOutputStream, AvroOutputStream}
+import com.starcount.common.schema.{UserItem => Schema}
 
 trait UserItem extends Avro[Schema] {
 
@@ -14,7 +13,7 @@ trait UserItem extends Avro[Schema] {
 
   private def socket = new Socket(hostName, portNumber)
 
-  lazy protected val outputStream = AvroOutputStream.data[Schema](socket.getOutputStream())
+  lazy protected val outputStream: AvroDataOutputStream[Schema] = AvroOutputStream.data[Schema](socket.getOutputStream())
 
 }
 
