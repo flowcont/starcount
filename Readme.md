@@ -1,5 +1,17 @@
 # Starcount Datasytems Interview Technical Test
 
+## How to run
+
+After cloning the repository, start the docker image: `docker-compose up`
+
+Then run the software in another terminal using `sbt akka/run`
+
+To run the tests: 
+
+`sbt akka/test`
+`sbt common/test`
+`sbt akka/it:test`
+
 ## Overview
 
 The task is to create an application that extracts data from the local file system, transforms it and
